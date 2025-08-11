@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+
+        body {
+            font-family: open sans;
+        }
+        h1 {
+            font-weight: normal;
+        }
+
+        span {
+            border-radius: 5px;
+            padding: 3px;
+       
+        }
+
+        #refresher {
+            background-color: lime;
+            height: 50px;
+        }
+
+        
+
+
+    </style>
+</head>
+<body>
+    <h1>Refresh checker</h1>
+    <nav>
+        <button onclick="reset()" id="resets">reset</button>  
+        <button onclick="resetLock()" id="locks">Lock</button>       
+         <button onclick="refreshes()" id="refresher">Reload</button>                            
+    </nav>
+
+    <p id="texto"></p>
+
+    <pre id="goals">You are:
+        
+         <span id="page">Page (10 refresh or below) </span>
+        
+         <span id="nearKnight">Near knight (10-25 refreshes)</span>
+        
+         <span id="justKnighted">Just knighted (25-60 refresh)</span>
+         
+         <span id="knight">Knight (60-80 refresh)</span>
+        
+         <span id="knightGen">Knight General (80-130 refresh)</span>
+        
+         <span id="undisKnight">Undisputed Knight General (130-180 refresh)</span>
+        
+         <span id="commandKnight">Commander of Knights (180-230 refresh)</span>
+        
+         <span id="noKnightCom">Noble Knight commander (230-300 refresh)</span>
+        
+         <span id="prince">Prince (300-400 refresh)</span>
+        
+         <span id="newKing">New King/Queen (400-510 refresh)</span>
+        
+         <span id="king">King/Queen (510-590 refresh)</span>
+        
+         <span id="mediLeg">Medieval Legend (590-730 refresh)</span>
+        
+         <span id="exMediLeg">Extreme Medieval Legend (730-1000 refresh)</span>
+        
+         <span id="millLeg">Millenium Legend (1000+ refresh)</span>
+    </pre>
+    <script>
+        const texto = document.getElementById("texto")
+         const goals = document.getElementById("goals")
+         const lock = document.getElementById("locks")
+         const resets = document.getElementById("resets")
+
+         const page = document.getElementById("page")
+        const nearKnight = document.getElementById("nearKnight")
+        const justKnighted = document.getElementById("justKnighted")
+         const knight = document.getElementById("knight")
+          const knightGen = document.getElementById("knightGen")
+          const undisKnight = document.getElementById("undisKnight")
+           const commandKnight = document.getElementById("commandKnight")
+            const noKnightCom = document.getElementById("noKnightCom")
+         const prince = document.getElementById("prince")
+          const newKing = document.getElementById("newKing")
+           const king = document.getElementById("king")
+            const mediLeg = document.getElementById("mediLeg")
+             const exMediLeg = document.getElementById("exMediLeg")
+              const millLeg = document.getElementById("millLeg")
+
+        let refresh = localStorage.getItem("refresh") || 0
+        let colour = "lightblue"
+        refresh++
+        localStorage.setItem("refresh", refresh)
+        texto.innerHTML = "You refreshed/entered this site: <strong>" + refresh + "</strong> times"
+
+        function reset() {
+            refresh -= refresh
+             localStorage.setItem("refresh", refresh)
+            texto.innerHTML = "You refreshed/entered this site: <strong>" + refresh + "</strong> times"
+            checker()
+        }
+        function checker() {
+        if (refresh < 11) {
+            page.style.backgroundColor = colour
+        }
+
+        if (refresh > 10 && refresh <= 25) {
+          
+            nearKnight.style.backgroundColor = colour
+        }
+
+        if (refresh > 25 && refresh <= 60) {
+            justKnighted.style.backgroundColor = colour
+        }
+
+        if (refresh > 60 && refresh <= 80) {
+            knight.style.backgroundColor = colour
+        }
+
+        if (refresh > 80 && refresh <= 130) {
+            knightGen.style.backgroundColor = colour
+        }
+
+         if (refresh > 130 && refresh <= 180) {
+            undisKnight.style.backgroundColor = colour
+        }
+
+         if (refresh > 180 && refresh <= 230) {
+            commandKnight.style.backgroundColor = colour
+        }
+
+         if (refresh > 230 && refresh <= 300) {
+            noKnightCom.style.backgroundColor = colour
+        }
+
+         if (refresh > 300 && refresh <= 400) {
+            prince.style.backgroundColor = colour
+        }
+
+         if (refresh > 400 && refresh <= 510) {
+            newKing.style.backgroundColor = colour
+        }
+
+         if (refresh > 510 && refresh <= 590) {
+            king.style.backgroundColor = colour
+        }
+
+         if (refresh > 590 && refresh <= 730) {
+            mediLeg.style.backgroundColor = colour
+        }
+
+         if (refresh > 730 && refresh <= 1000) {
+            exMediLeg.style.backgroundColor = colour
+        }
+
+         if (refresh > 1000) {
+            millLeg.style.backgroundColor = colour
+        }
+
+    }
+
+        function resetLock() {
+            resets.disabled = true
+            
+            texto.innerHTML = "You refreshed/entered this site: <strong>" + refresh + "</strong> times"
+            lock.onclick = function() {
+                resets.disabled = false
+                lock.onclick = resetLock
+            }
+        }
+
+         checker()
+
+         function refreshes() {
+            location.reload()
+         }
+
+
+
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
