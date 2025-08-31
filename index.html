@@ -39,7 +39,7 @@
     </style>
 </head>
 <body>
-    <h1>Refresh checker</h1>
+    <h1>Refresh Rank</h1>
     <nav>
         <button onclick="reset()" id="resets">reset</button>  
         <button onclick="resetLock()" id="locks">Lock</button>       
@@ -100,7 +100,7 @@
               const millLeg = document.getElementById("millLeg")
 
         let refresh = localStorage.getItem("refresh") || 0
-        let colour = "lightblue"
+        let colour = "#7ac2e3"
         refresh++
         localStorage.setItem("refresh", refresh)
         texto.innerHTML = "You refreshed/entered this site: <strong>" + refresh + "</strong> times"
