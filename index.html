@@ -109,7 +109,7 @@
         refresh++
         localStorage.setItem("refresh", refresh)
         texto.innerHTML = "You refreshed/entered this site: <strong>" + refresh + "</strong> times"
-
+        const aud = new Audio("/reloadGame/wow-423653.mp3")
         function reset() {
             refresh -= refresh
              localStorage.setItem("refresh", refresh)
@@ -119,64 +119,79 @@
         function checker() {
         if (refresh < 11) {
             page.style.backgroundColor = colour
+            aud.play()
         }
 
         if (refresh > 10 && refresh <= 25) {
-          
+          aud.play()
             nearKnight.style.backgroundColor = colour
         }
 
         if (refresh > 25 && refresh <= 60) {
+            aud.play()
             justKnighted.style.backgroundColor = colour
         }
 
         if (refresh > 60 && refresh <= 80) {
+            aud.play()
             knight.style.backgroundColor = colour
         }
 
         if (refresh > 80 && refresh <= 130) {
+            aud.play()
             knightGen.style.backgroundColor = colour
         }
 
          if (refresh > 130 && refresh <= 180) {
+             aud.play()
             undisKnight.style.backgroundColor = colour
         }
 
          if (refresh > 180 && refresh <= 230) {
+             aud.play()
             commandKnight.style.backgroundColor = colour
         }
 
          if (refresh > 230 && refresh <= 300) {
+             aud.play()
             noKnightCom.style.backgroundColor = colour
         }
 
          if (refresh > 300 && refresh <= 400) {
+             aud.play()
             prince.style.backgroundColor = colour
         }
 
          if (refresh > 400 && refresh <= 510) {
+             aud.play()
             newKing.style.backgroundColor = colour
         }
 
          if (refresh > 510 && refresh <= 590) {
+             aud.play()
             king.style.backgroundColor = colour
         }
 
          if (refresh > 590 && refresh <= 730) {
+             aud.play()
             mediLeg.style.backgroundColor = colour
         }
 
          if (refresh > 730 && refresh <= 1000) {
+             aud.play()
             exMediLeg.style.backgroundColor = colour
         }
 
          if (refresh > 1000 && refresh <= 2000) {
+             aud.play()
             millLeg.style.backgroundColor = colour
         }
          if (refresh > 2000 && refresh <= 4000) {
+             aud.play()
             millBiLeg.style.backgroundColor = colour
         }
          if (refresh > 4000 && refresh <= 10000) {
+             aud.play()
             millQuadLeg.style.backgroundColor = colour
         }
 
