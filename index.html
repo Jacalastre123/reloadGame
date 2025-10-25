@@ -76,7 +76,10 @@
         
          <span id="exMediLeg">Extreme Medieval Legend (730-1000 refresh)</span>
         
-         <span id="millLeg">Millenium Legend (1000+ refresh)</span>
+         <span id="millLeg">Millenium Legend (1000-2000 refresh)</span>
+        <span id="millBiLeg">BiMillenium Legend (2000-4000 refresh)</span>
+        <span id="millQuadLeg">Quad-Millenium Legend (4000-10,000 refresh)</span>
+        <span id="GodlyLeg">Absolutely Godly (10,000+ refresh)</span>
     </pre>
     <script>
         const texto = document.getElementById("texto")
@@ -98,9 +101,11 @@
             const mediLeg = document.getElementById("mediLeg")
              const exMediLeg = document.getElementById("exMediLeg")
               const millLeg = document.getElementById("millLeg")
-
+        const millBiLeg = document.getElementById("millBiLeg")
+        const millQuadLeg = document.getElementById("millQuadLeg")
+        const GodlyLeg = document.getElementById("GodlyLeg")
         let refresh = localStorage.getItem("refresh") || 0
-        let colour = "#7ac2e3"
+        let colour = "#59EBFF"
         refresh++
         localStorage.setItem("refresh", refresh)
         texto.innerHTML = "You refreshed/entered this site: <strong>" + refresh + "</strong> times"
@@ -165,8 +170,19 @@
             exMediLeg.style.backgroundColor = colour
         }
 
-         if (refresh > 1000) {
+         if (refresh > 1000 && refresh <= 2000) {
             millLeg.style.backgroundColor = colour
+        }
+         if (refresh > 2000 && refresh <= 4000) {
+            millBiLeg.style.backgroundColor = colour
+        }
+         if (refresh > 4000 && refresh <= 10000) {
+            millQuadLeg.style.backgroundColor = colour
+        }
+
+            
+         if (refresh > 10000) {
+            GodlyLeg.style.backgroundColor = colour
         }
 
     }
