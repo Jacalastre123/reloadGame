@@ -56,7 +56,8 @@ nav {
     <nav>
         <button onclick="reset()" id="resets">reset</button>  
         <button onclick="resetLock()" id="locks">Lock</button>       
-         <button onclick="refreshes()" id="refresher">Reload</button>                            
+         <button onclick="refreshes()" id="refresher">Reload</button>     
+        <button onclick="AutoRefresh(this)" id="autoRefresher">Auto Refresh</button>  
     </nav>
 
     <p id="texto"></p>
@@ -96,6 +97,10 @@ nav {
         <span id="millQuadLeg">Quad-Millenium Legend (4000-10,000 refresh)</span>
         
         <span id="GodlyLeg">Absolutely Godly (10,000+ refresh)</span>
+
+        <span id="TrulyGodlyLeg">Truly Godly (20,000+ refresh)</span>
+
+        <span id="AbGodlyLeg">Absolutely Godly (40,000+ refresh)</span>
     </pre>
     <script>
         const texto = document.getElementById("texto")
@@ -121,6 +126,7 @@ nav {
         const millQuadLeg = document.getElementById("millQuadLeg")
         const GodlyLeg = document.getElementById("GodlyLeg")
         let refresh = localStorage.getItem("refresh") || 0
+        let autoRef = localStorage.getItem("autoRef") || "false"
         let colour = "#59EBFF"
         refresh++
         localStorage.setItem("refresh", refresh)
@@ -233,6 +239,27 @@ nav {
          function refreshes() {
             location.reload()
          }
+        function autoRefresh(e) {
+            if (autoRef === "false") {
+                
+                localStorage.setItem("autoRef", "true")
+                setTimeout(() => location.reload(), 2000)
+                e.innerText = "Activated Auto Refresh"
+            }
+            else {
+                localStorage.setItem("autoRef", "false")
+                e.innerText = "inactivated"
+                setTimeout(() => e.innerText = "Auto Refresh", 1000)
+               
+            }
+            
+        }
+        if (autoRef === "true") {
+            setTimeout(() => location.reload(), 2000)
+            document.getElementById("autoRefresher").innerText = "Activated Auto Refresh"
+        }
+
+        
 
 
 
