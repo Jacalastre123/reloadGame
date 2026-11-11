@@ -92,7 +92,7 @@ nav {
         
          <span id="millLeg">Millenium Legend (1000-2000 refresh)</span>
         
-        <span id="millBiLeg">BiMillenium Legend (2000-4000 refresh)</span>
+        <span id="millBiLeg">Bi-Millenium Legend (2000-4000 refresh)</span>
         
         <span id="millQuadLeg">Quad-Millenium Legend (4000-10,000 refresh)</span>
         
@@ -100,7 +100,15 @@ nav {
 
         <span id="TrulyGodlyLeg">Truly Godly (20,000+ refresh)</span>
 
-        <span id="AbGodlyLeg">Absolutely Godly (40,000+ refresh)</span>
+        <span id="AbGodlyLeg">Absolutely Godly (40,000+ refresh)</span> 
+        
+        <span id="LegendGodlyLeg">Legendary god (100,000+ refresh)</span>
+        
+        <span id="LegendGodlyLeg2">Double-Legendary god (200,000+ refresh)</span>
+        
+        <span id="LegendGodlyLeg4">Quad-Legendary god (400,000+ refresh)</span>
+        
+        <span id="LeaderGodlyLeg">Leader of gods (1,000,000+ refresh)</span>
     </pre>
     <script>
         const texto = document.getElementById("texto")
@@ -125,6 +133,14 @@ nav {
         const millBiLeg = document.getElementById("millBiLeg")
         const millQuadLeg = document.getElementById("millQuadLeg")
         const GodlyLeg = document.getElementById("GodlyLeg")
+        const TrulyGodlyLeg = document.getElementById("TrulyGodlyLeg")
+        const AbGodlyLeg = document.getElementById("AbGodlyLeg")
+        const LegendGodlyLeg = document.getElementById("LegendGodlyLeg")
+        const LegendGodlyLeg2 = document.getElementById("LegendGodlyLeg2")
+        const LegendGodlyLeg4 = document.getElementById("LegendGodlyLeg4")
+        const LeaderGodlyLeg = document.getElementById("LeaderGodlyLeg")
+
+        
         let refresh = localStorage.getItem("refresh") || 0
         let autoRef = localStorage.getItem("autoRef") || "false"
         let colour = "#59EBFF"
@@ -220,6 +236,24 @@ nav {
             
          if (refresh > 10000) {
             GodlyLeg.style.backgroundColor = colour
+        }
+            if (refresh > 20000) {
+            TrulyGodlyLeg.style.backgroundColor = colour
+        }
+                        if (refresh > 40000) {
+            AbGodlyLeg.style.backgroundColor = colour
+        }
+              if (refresh > 100000) {
+            LegendGodlyLeg.style.backgroundColor = colour
+        }
+             if (refresh > 200000) {
+            LegendGodlyLeg2.style.backgroundColor = colour
+        }
+              if (refresh > 400000) {
+            LegendGodlyLeg4.style.backgroundColor = colour
+        }
+                if (refresh > 1000000) {
+            LeaderGodlyLeg.style.backgroundColor = colour
         }
 
     }
